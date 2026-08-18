@@ -31,9 +31,9 @@ app.add_middleware(
 )
 
 app.mount("/static", StaticFiles(directory="."), name="static")
-app.include_router(thread_router)
+app.include_router(thread_router, prefix="/api")
 app.include_router(websocket_router, prefix="/api")
-app.include_router(pdf_router)
-app.include_router(auth_router)
+app.include_router(pdf_router, prefix="/api")
+app.include_router(auth_router, prefix="/api")
 app.include_router(drive_router, prefix="/api")
 app.include_router(canva_router, prefix="/api")
